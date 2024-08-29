@@ -1,0 +1,7 @@
+.list {
+  @apply w-full md:w-1/2 flex flex-wrap gap-4 p-4 border border-gray-200 rounded-md;
+}
+
+.button {
+  @apply flex justify-center items-center p-4;
+}

@@ -1,0 +1,15 @@
+.default {
+  @apply rounded-md;
+  background-color: #F4F6F8;
+  path {
+    fill: #343A40;
+  }
+}
+
+.selected {
+  @apply rounded-md;
+  background-color: #E5E8FD;
+  path {
+    fill: #253CF2;
+  }
+}
