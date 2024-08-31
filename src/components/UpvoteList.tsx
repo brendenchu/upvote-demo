@@ -1,10 +1,9 @@
-import { useState } from "react";
-import Upvote from "./Upvote";
-import UpvoteButton from "./UpvoteButton";
+import { useState } from 'react'
+import Upvote from './Upvote'
+import UpvoteButton from './UpvoteButton'
 import styles from './UpvoteList.module.css'
 
 export default function UpvoteList() {
-
   const [numUpvotes, setNumUpvotes] = useState<number>(0)
   const [selected, setSelected] = useState<number>(0)
 
@@ -22,10 +21,7 @@ export default function UpvoteList() {
       <ul className={styles.list}>
         {[...Array(numUpvotes)].map((_, i) => (
           <li key={i}>
-            <Upvote 
-              selected={selected === i}
-              handler={toggleSelection(i)}
-             />
+            <Upvote selected={selected === i} handler={toggleSelection(i)} />
           </li>
         ))}
       </ul>
