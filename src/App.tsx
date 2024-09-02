@@ -15,9 +15,10 @@ export default function App() {
   const saveToLocalStorage = (
     object: UpvotesProps,
     id: number,
-    count: number
+    count: number,
+    selected: number
   ) => {
-    object[id] = count
+    object[id] = { count, selected }
     localStorage.setItem('upvotes', JSON.stringify(object))
   }
 
@@ -41,7 +42,7 @@ export default function App() {
           <h1 className="font-bold text-2xl mb-4">Upvote Demo</h1>
           <div className="flex flex-col justify-start items-start gap-4">
             {[1, 2, 3].map((i) => (
-              <div className="flex justify-start w-full" key={i}>
+              <div className="upvote-list flex justify-start w-full" key={i}>
                 <UpvoteList listId={i} />
               </div>
             ))}

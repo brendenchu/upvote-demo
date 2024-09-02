@@ -18,6 +18,7 @@ export default function UpvoteList({ listId }: { listId: number }) {
   // toggle selection
   const toggleSelection = (i: number) => () => {
     setSelected(i)
+    saveToLocalStorage(upvotes, listId, numUpvotes, i)
   }
 
   // add upvote
@@ -25,19 +26,19 @@ export default function UpvoteList({ listId }: { listId: number }) {
     const newCount = numUpvotes + 1
     setNumUpvotes(newCount)
     setSelected(numUpvotes)
-    saveToLocalStorage(upvotes, listId, newCount)
+    saveToLocalStorage(upvotes, listId, newCount, numUpvotes)
   }
 
   // refresh upvotes
-  const refresh = (value: number) => {
-    setNumUpvotes(value || 0)
-    setSelected(value - 1 || 0)
+  const refresh = (count: number, selected: number) => {
+    setNumUpvotes(count || 0)
+    setSelected(selected || 0)
   }
 
   // update upvotes
   useEffect(() => {
     if (upvotes[listId] !== undefined) {
-      refresh(upvotes[listId]!)
+      refresh(upvotes[listId]!.count, upvotes[listId]!.selected)
     }
   }, [upvotes, listId])
 
